@@ -1,0 +1,139 @@
+<app-navbar></app-navbar>
+
+<div class="home-container">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Découvrez notre collection complète d'équipements sportifs</h1>
+      <p>Des équipements de qualité professionnelle pour tous les sports</p>
+      <div class="cta-buttons">
+        <a routerLink="/femme" class="cta-button primary">Collection Femme</a>
+        <a routerLink="/homme" class="cta-button secondary">Collection Homme</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="feature">
+      <div class="feature-icon delivery"></div>
+      <h3>Livraison Gratuite</h3>
+      <p>Pour toute commande supérieure à 50€</p>
+    </div>
+    
+    <div class="feature">
+      <div class="feature-icon returns"></div>
+      <h3>Retours Faciles</h3>
+      <p>30 jours pour changer d'avis</p>
+    </div>
+    
+    <div class="feature">
+      <div class="feature-icon quality"></div>
+      <h3>Garantie Qualité</h3>
+      <p>Des produits testés par des athlètes</p>
+    </div>
+    
+    <div class="feature">
+      <div class="feature-icon support"></div>
+      <h3>Support 24/7</h3>
+      <p>Une équipe à votre écoute</p>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="categories">
+    <div class="section-header">
+      <h2>Explorez nos catégories</h2>
+      <p>Trouvez l'équipement parfait adapté à votre sport</p>
+    </div>
+    
+    <div class="categories-grid">
+      <div *ngFor="let category of featuredCategories" class="category-card">
+        <a [routerLink]="category.link" class="category-link">
+          <div class="category-image">
+            <img [src]="category.image" [alt]="category.title">
+          </div>
+          <div class="category-content">
+            <h3>{{category.title}}</h3>
+            <p>{{category.description}}</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="products">
+    <div class="section-header">
+      <h2>Produits populaires</h2>
+      <p>Découvrez notre sélection des articles les plus vendus</p>
+    </div>
+    
+    <div class="products-grid">
+      <div *ngFor="let product of featuredProducts" class="product-card">
+        <div class="product-image">
+          <img [src]="product.image" [alt]="product.name">
+          <div class="product-actions">
+            <button class="action-button wishlist" (click)="addToWishlist(product)">
+              <span class="wishlist-icon"></span>
+            </button>
+            <button class="action-button cart" (click)="addToCart(product)">
+              <span class="cart-icon"></span>
+            </button>
+          </div>
+        </div>
+        <div class="product-info">
+          <span class="product-category">{{product.category}}</span>
+          <h3 class="product-name">{{product.name}}</h3>
+          <div class="product-rating">
+            <div class="stars">
+              <span *ngFor="let star of [1,2,3,4,5]" [class.filled]="star <= product.rating">★</span>
+            </div>
+          </div>
+          <p class="product-price">{{product.price}}€</p>
+        </div>
+        <a [routerLink]="product.link" class="product-button">Voir le produit</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Banner Section -->
+  <section class="banner">
+    <div class="banner-content">
+      <h2>NOUVELLE COLLECTION</h2>
+      <h3>Préparez-vous pour l'été</h3>
+      <p>Des vêtements techniques pour performer par temps chaud</p>
+      <a routerLink="/nouveautes" class="banner-button">Découvrir</a>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <div class="section-header">
+      <h2>Ce que disent nos clients</h2>
+      <p>Des avis vérifiés de sportifs qui nous font confiance</p>
+    </div>
+    
+    <div class="testimonials-grid">
+      <div class="testimonial">
+        <div class="testimonial-rating">★★★★★</div>
+        <p>"Les produits sont de qualité exceptionnelle, et la livraison a été plus rapide que prévu."</p>
+        <div class="testimonial-author">Marie D. - Running</div>
+      </div>
+      
+      <div class="testimonial">
+        <div class="testimonial-rating">★★★★★</div>
+        <p>"J'ai acheté une tenue complète pour mes séances de fitness et je suis vraiment impressionné."</p>
+        <div class="testimonial-author">Thomas B. - Cross Fit</div>
+      </div>
+      
+      <div class="testimonial">
+        <div class="testimonial-rating">★★★★★</div>
+        <p>"Le service client est réactif et l'échange que j'ai dû faire a été traité rapidement."</p>
+        <div class="testimonial-author">Sophie M. - Tennis</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<app-footer></app-footer>

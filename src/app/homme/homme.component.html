@@ -1,0 +1,61 @@
+<app-navbar></app-navbar>
+
+<section class="hero-section" #heroSection>
+  <div class="hero-content">
+    <h1 class="hero-title">Collection Homme</h1>
+    <p class="hero-subtitle">Des équipements conçus pour la performance et le style</p>
+    <div class="hero-cta">
+      <button (click)="navigateToProducts('tous')" class="primary-button">
+        Explorer tous les produits
+      </button>
+    </div>
+  </div>
+</section>
+
+<div class="categories-container">
+  <div class="section-header">
+    <h2 class="section-title">Nos catégories sportives</h2>
+    <p class="section-description">
+      Découvrez notre sélection d'équipements sportifs de haute qualité pour hommes. 
+      Des produits professionnels pour tous les niveaux, du débutant à l'athlète confirmé.
+    </p>
+  </div>
+
+  <div class="categories-grid">
+    <div class="sport-card" *ngFor="let item of sport; let i = index" [style.animation-delay]="i * 0.1 + 's'">
+      <div class="category-tag">{{ item.category | titlecase }}</div>
+      <div class="card-image-container">
+        <img [src]="item.imageUrl" [alt]="item.title" class="sport-image">
+        <div class="image-overlay">
+          <span class="tagline">{{ item.tagline }}</span>
+        </div>
+      </div>
+      <div class="card-content">
+        <h2 class="card-title">{{ item.title }}</h2>
+        <p class="card-description">{{ item.description }}</p>
+        <button (click)="navigateToProducts(item.category)" class="cta-button">
+          {{ item.ctaText }}
+          <svg class="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="featured-section">
+  <div class="featured-content">
+    <h2 class="featured-title">Nouveautés de saison</h2>
+    <p class="featured-description">
+      Découvrez notre nouvelle collection d'équipements sportifs pour hommes. 
+      Des designs innovants et des technologies avancées pour améliorer vos performances.
+    </p>
+    <button class="featured-cta">Voir la nouvelle collection</button>
+  </div>
+  <div class="featured-image-container">
+    <img src="https://images.pexels.com/photos/4162579/pexels-photo-4162579.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Nouvelle collection" class="featured-image">
+  </div>
+</section>
+
+<app-footer></app-footer>   
